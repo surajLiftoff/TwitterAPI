@@ -1,0 +1,88 @@
+.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+    width: 500px;
+    border-radius: 25px;
+    box-shadow: rgba(161, 145, 145, 0.25) 0px 54px 55px, rgba(163, 160, 160, 0.12) 0px -12px 30px, rgba(199, 199, 199, 0.12) 0px 4px 6px, rgba(168, 168, 168, 0.17) 0px 12px 13px, rgba(194, 187, 187, 0.09) 0px -3px 5px;
+}
+
+input {
+    margin-bottom: 15px;
+    width: 500px;
+}
+
+.card-error {
+    background-color: rgb(222, 159, 159);
+    padding-left: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 20px;
+    border-radius: 25px;
+    color: red;
+}
+
+label {
+    color: white;
+}
+
+.card-subtitle.text-muted {
+    display: inline-block;
+}
+
+.card-title {
+    display: inline-block;
+    font-weight: bold;
+    padding-right: 5px;
+}
+
+.fab.fa-twitter {
+    color: blue;
+}
+
+#spinner {
+    margin-right: 10px;
+}
+
+.navbar.navbar-default {
+    background-color: rgb(34, 52, 77);
+}
+
+.fa.fa-video-camera {
+    font-size: 24px;
+    color: rgb(234, 239, 84)
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    width: 50%;
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.searchText {
+    margin-bottom: 20px;
+    color: aliceblue;
+}

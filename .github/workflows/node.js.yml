@@ -31,7 +31,7 @@ jobs:
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: dist-without-markdown
+        name: dist-without-markdown-${{ matrix.node-version }}
         path: |
           dist
           !dist/**/*.md

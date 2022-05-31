@@ -34,4 +34,4 @@ app.get('/api/tweet/search/:keyword', (req, res) => {
 //     );
 // });
 
-app.listen(3000, () => console.log('Server running'));
+app.listen(3010, () => console.log('Server running'));

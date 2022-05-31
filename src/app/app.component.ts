@@ -29,7 +29,7 @@ export class AppComponent {
     this.tweets = [];
     this.loading = true;
     this.params=this.searchParams;
-    this.http.get<any>("http://localhost:3000/api/tweet/search/"+ this.searchParams).subscribe(
+    this.http.get<any>("http://demo-heroku-express.herokuapp.com/api/tweet/search/"+ this.searchParams).subscribe(
       result => {
         this.tempTweets = result.data;
       }, errorMessage => {
@@ -38,7 +38,7 @@ export class AppComponent {
       } 
     ).add(() => {
       this.tempTweets.forEach(tweet => {
-        this.http.get<any>("http://localhost:3000/api/tweet/" + tweet.id).subscribe(
+        this.http.get<any>("http://demo-heroku-express.herokuapp.com/api/tweet/" + tweet.id).subscribe(
           result => {
             this.isData = true;
             this.tweets.push(result);

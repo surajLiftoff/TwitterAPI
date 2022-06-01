@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { AppService } from './app.service';
 // import { FormGroup, FormArray, FormControlName } from '@angular/forms';
 
 @Component({
@@ -10,45 +11,48 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   @ViewChild('f') form: NgForm;
-  tempTweets: Array<any> = [];
-  tweets: Array<any> = [];
-  searchParams: string = "";
-  loading: boolean = false;
-  isError = false;
-  isData = false;
-  params: string = "";
-  errorMessage = '';
+  // tempTweets: Array<any> = [];
+  // tweets: Array<any> = [];
+  // searchParams: string = "";
+  // loading: boolean = false;
+  // isError = false;
+  // isData = false;
+  // params: string = "";
+  // errorMessage = '';
 
-  constructor(private http : HttpClient) {
+  constructor(private http : HttpClient,
+              private appService: AppService) {
 
   }
 
   ngOnInit() { }
 
   onSubmit() {
-    this.tweets = [];
-    this.loading = true;
-    this.params=this.searchParams;
-    this.http.get<any>("https://demo-heroku-express.herokuapp.com/api/tweet/search/"+ this.searchParams).subscribe(
-      result => {
-        this.tempTweets = result.data;
-      }, errorMessage => {
-        this.isError = true; 
-        this.errorMessage = errorMessage.message;
-      } 
-    ).add(() => {
-      this.tempTweets.forEach(tweet => {
-        this.http.get<any>("https://demo-heroku-express.herokuapp.com/api/tweet/" + tweet.id).subscribe(
-          result => {
-            this.isData = true;
-            this.tweets.push(result);
-            console.log(result);
-          }
+    // this.tweets = [];
+    // this.loading = true;
+    // this.params=this.searchParams;
+    // this.http.get<any>("https://demo-heroku-express.herokuapp.com/api/tweet/search/"+ this.searchParams)
+    // .subscribe(
+    //   result => {
+    //     this.tempTweets = result.data;
+    //   }, errorMessage => {
+    //     this.isError = true; 
+    //     this.errorMessage = errorMessage.message;
+    //   } 
+    // ).add(() => {
+    //   this.tempTweets.forEach(tweet => {
+    //     this.http.get<any>("https://demo-heroku-express.herokuapp.com/api/tweet/" + tweet.id).subscribe(
+    //       result => {
+    //         this.isData = true;
+    //         this.tweets.push(result);
+    //         console.log(result);
+    //       }
           
-        )
-      });
-      this.loading = false;
-    });
+    //     )
+    //   });
+    //   this.loading = false;
+    // });
+    this.appService.submit();
     this.form.reset();
   }
 

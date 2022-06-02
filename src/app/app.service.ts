@@ -22,7 +22,7 @@ export class AppService {
     this.tweets = [];
     this.loading = true;
     this.params=this.searchParams;
-    return this.http.get<any>("https://demo-heroku-express.herokuapp.com/api/tweet/search/"+ this.searchParams).subscribe(
+    return this.http.get<any>("https://localhost:3000/api/tweet/search/"+ this.searchParams).subscribe(
       result => {
         this.tempTweets = result.data;
       }, errorMessage => {
@@ -31,7 +31,7 @@ export class AppService {
       } 
     ).add(() => {
       this.tempTweets.forEach(tweet => {
-        this.http.get<any>("https://demo-heroku-express.herokuapp.com/api/tweet/" + tweet.id).subscribe(
+        this.http.get<any>("https://localhost:3000/api/tweet/" + tweet.id).subscribe(
           result => {
             this.isData = true;
             this.tweets.push(result);

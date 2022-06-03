@@ -11,7 +11,7 @@ app.use(cors());
 
 // this function gets author of tweet based on tweet ID.
 app.get('/api/tweet/:id', (req, res) => {
-    client.tweets.findTweetById(req.params["id"], { expansions: ["author_id", "attachments.media_keys"], "media.fields": ["url", "preview_image_url", "type"] }).then(
+    client.tweets.findTweetById(req.params["id"], { expansions: ["author_id", "attachments.media_keys"], "media.fields": ["variants", "url", "preview_image_url", "type", "alt_text", "duration_ms", "media_key"] }).then(
         tweet => {
             res.send(tweet);
         }

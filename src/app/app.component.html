@@ -61,17 +61,19 @@
             </div>
             <div class="card-subtitle text-muted"> @{{ tweet.includes.users[0].username }}</div>
             <p class="card-text">{{ tweet.data.text }}</p>
-            <div *ngIf="tweet.includes.media && tweet.includes.media[0].type == 'photo'">
+            <div *ngIf="tweet.includes.media && tweet.includes.media[0].type === 'photo'">
                 <img class="card-img-top" [src]="tweet.includes?.media[0].url" alt="Card image cap">
             </div>
-            <div *ngIf="tweet.includes.media && tweet.includes.media[0].type == 'video'" class="container">
-                <img class="card-img-top" [src]="tweet.includes?.media[0].preview_image_url" alt="Card image cap">
+            <div *ngIf="tweet.includes.media && tweet.includes.media[0].type === 'video' && tweet.includes.media[0].variants[0].content_type === 'video/mp4'" class="container">
+                <!-- <img class="card-img-top" [src]="tweet.includes?.media[0].preview_image_url" alt="Card image cap"> 
                 <div class="overlay">
                     <i class="fa fa-video-camera"></i>
-                </div>
+                </div> -->
+                <video width="320" height="240" controls>
+                    <source [src]="tweet.includes.media[0].variants[0].url">
 
+                  </video>
             </div>
-
         </div>
     </div>
 
